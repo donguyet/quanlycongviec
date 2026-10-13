@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quản Lý Công Việc</h1>
+
+        <!-- Form thêm công việc -->
+        <form id="task-form">
+            <div class="input-group">
+                <input type="text" id="task-name" placeholder="Tên công việc (Bắt buộc)">
+                <input type="date" id="task-date">
+                <select id="task-priority">
+                    <option value="Cao">Ưu tiên: Cao</option>
+                    <option value="Trung bình" selected>Ưu tiên: Trung bình</option>
+                    <option value="Thấp">Ưu tiên: Thấp</option>
+                </select>
+                <button type="submit" id="btn-add">Thêm</button>
+            </div>
+            <p id="error-msg" class="error-hidden">Vui lòng nhập tên công việc!</p>
+        </form>
+
+        <!-- Bộ lọc và Tìm kiếm -->
+        <div class="controls">
+            <input type="text" id="search-input" placeholder="Tìm kiếm theo tên...">
+            <select id="filter-status">
+                <option value="all">Tất cả trạng thái</option>
+                <option value="incomplete">Chưa hoàn thành</option>
+                <option value="complete">Đã hoàn thành</option>
+            </select>
+        </div>
+
+        <!-- Danh sách hiển thị -->
+        <ul id="task-list"></ul>
+
+        <!-- Footer -->
+        <footer>
+            Họ tên: Đỗ Minh Nguyệt - MSSV: [224001740]
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

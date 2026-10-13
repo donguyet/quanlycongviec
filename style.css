@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f8ff; /* Nền xanh Alice Blue siêu nhạt */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 25px;
+    border-radius: 20px; /* Bo tròn mạnh cho khung chính */
+    box-shadow: 0 10px 25px rgba(119, 158, 203, 0.15); /* Đổ bóng nhẹ màu pastel */
+}
+
+h1 {
+    text-align: center;
+    color: #6a92b2; /* Xanh dương pastel đậm để dễ đọc */
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* Form và Controls */
+.input-group, .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    padding: 12px 15px;
+    border: 1px solid #d4e1ec;
+    border-radius: 12px; /* Bo tròn các ô nhập liệu và nút */
+    flex: 1;
+    min-width: 120px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #8db4d2; 
+    box-shadow: 0 0 8px rgba(141, 180, 210, 0.4); /* Sáng lên màu xanh pastel khi click vào */
+}
+
+/* Nút bấm chung */
+button {
+    background-color: #92badd; /* Xanh dương pastel */
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover, button:focus {
+    background-color: #7aa5ca; /* Đậm hơn một chút khi di chuột qua */
+    transform: scale(0.98); /* Hiệu ứng lún nhẹ khi bấm */
+}
+
+/* Thông báo lỗi */
+.error-hidden { display: none; }
+.error-visible { display: block; color: #ff8b94; font-size: 0.9em; margin-bottom: 15px; padding-left: 5px; }
+
+/* Danh sách công việc */
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eef3f7;
+    border-radius: 15px; /* Bo tròn từng thẻ công việc */
+    margin-bottom: 12px;
+    background: #f9fcff;
+    flex-wrap: wrap;
+    gap: 10px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+li:hover {
+    box-shadow: 0 4px 12px rgba(119, 158, 203, 0.12);
+    transform: translateY(-2px); /* Hiệu ứng nổi lên nhẹ khi di chuột */
+}
+
+li.completed .task-info {
+    text-decoration: line-through;
+    color: #a4b8c7; /* Chữ mờ đi khi hoàn thành */
+}
+
+.task-info {
+    flex: 2;
+    min-width: 150px;
+}
+
+.task-info strong {
+    color: #4a7495;
+    font-size: 1.1em;
+}
+
+.task-info small {
+    color: #8fa8bc;
+    display: block;
+    margin-top: 5px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Tùy chỉnh màu các nút trong danh sách cho hợp tone pastel */
+.btn-toggle { background-color: #b4d8e7; color: #3a687d; }
+.btn-toggle:hover { background-color: #9acbe0; }
+
+.btn-delete { background-color: #ffb3ba; color: #a93c47; } /* Đỏ pastel cho nút xóa */
+.btn-delete:hover { background-color: #ff9fa8; }
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #9db4c7;
+    border-top: 1px dashed #d4e1ec;
+    padding-top: 20px;
+}
+
+/* Responsive cho màn hình điện thoại ~375px */
+@media (max-width: 380px) {
+    input, select, button {
+        flex: 100%;
+    }
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .task-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+/* --- BỔ SUNG: Định dạng cho vùng hiển thị Hạn và Thẻ ưu tiên --- */
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.task-info small {
+    color: #8fa8bc;
+    margin-top: 0; /* Ghi đè margin cũ */
+}
+
+/* Thiết kế khung cho thẻ (badge) */
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px; /* Bo tròn hoàn toàn tạo hình viên thuốc */
+    font-size: 0.75em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+/* Các màu sắc tone pastel cho từng mức độ */
+.priority-high {
+    background-color: #ffe5e5; /* Đỏ/Hồng pastel */
+    color: #d65a5a;
+}
+
+.priority-medium {
+    background-color: #fff4d4; /* Vàng/Cam pastel */
+    color: #b88a44;
+}
+
+.priority-low {
+    background-color: #e5f5e5; /* Xanh lá pastel */
+    color: #559955;
+}
+
+/* Khi công việc hoàn thành, thẻ ưu tiên cũng mờ đi một chút */
+li.completed .badge {
+    opacity: 0.6;
+    filter: grayscale(0.5);
+}
